@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 import messageRouter from './router/messageRouter.js'
 import cors from 'cors'
 import path from 'path'
+import { fileURLToPath } from 'url';
+
 
 const app = express()
 
