@@ -23,19 +23,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use('/api/v1/message', messageRouter)
 
-
 dbConnection()
-  .then(() => {
-    console.log('Database connected successfully!');
-    // Start the server after successful connection
-  })
-  .catch((error) => {
-    console.error('Error connecting to database:', error);
-    // Handle the error gracefully, potentially terminate the application
-  });
 
-
-//static files
 app.use(express.static(path.join(__dirname, '/frontend/dist')))
 app.get('*', function(req,res){
     res.sendFile(path.join(__dirname, '/frontend/dist/index.html'))
